@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/** Inline prose link (matches hussam.fyi `.styled-link`) */
+.styled-link {
+  color: var(--hyperlink-color);
+  font-weight: inherit;
+  line-height: inherit;
+  transition: color 0.2s;
+  display: inline;
+  position: relative;
+}
+
+.styled-link:hover {
+  color: var(--hyperlink-hover);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.55s ease forwards;
+  animation-delay: var(--stagger, 0ms);
+}
+
+:root {
+  /* apple.com main.built.css — en-US stacks (SF Pro loads via apple.com on Safari; system fonts elsewhere) */
+  --font-sans: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  --font-display: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  --font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  /* apple.com main.built.css — light / theme-light (sk-* rgb → HSL for Tailwind) */
+  --background: 0 0% 100%;
+  --foreground: 240 3.33% 11.76%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 3.33% 11.76%;
+  --primary: 240 3.33% 11.76%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 11.11% 96.47%;
+  --secondary-foreground: 240 2.22% 44.12%;
+  --muted: 240 11.11% 96.47%;
+  --muted-foreground: 240 2.11% 53.53%;
+  --accent: 240 12.2% 92%;
+  --accent-foreground: 240 3.33% 11.76%;
+  --border: 240 9.4% 87.45%;
+  --input: 240 9.4% 87.45%;
+  --ring: 210 100% 44.5%;
+  --rounded: 0.5rem;
+  --body-color: rgb(29, 29, 31);
+  --body-bg: rgb(255, 255, 255);
+  --heading-color: rgb(29, 29, 31);
+  --heading-secondary: rgb(66, 66, 69);
+  --heading-tertiary: rgb(110, 110, 115);
+  --text-body: rgb(29, 29, 31);
+  --text-muted: rgb(134, 134, 139);
+  --hyperlink-color: rgb(0, 102, 204);
+  --hyperlink-hover: rgb(0, 118, 223);
+  --selection-color: rgb(29, 29, 31);
+  --selection-bg: rgb(237, 237, 239);
+  /* --sk-focus-color: #0071e3 */
+  --focus-color: #0071e399;
+  --border-subtle: rgb(0 0 0 / 0.08);
+  --border-light: rgb(0 0 0 / 0.06);
+  /* apple.com — letter-spacing by nominal size (main.built.css / globalheader.css) */
+  --tracking-17: -0.022em;
+  --tracking-14: -0.016em;
+  --tracking-12: -0.01em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: hsl(var(--border));
+}
+
+::selection {
+  color: var(--selection-color);
+  background: var(--selection-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-color);
+}
+
+html {
+  color-scheme: light;
+  background: var(--body-bg);
+  color: var(--body-color);
+  scroll-behavior: smooth;
+  min-height: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: var(--font-sans);
+  font-size: 100%;
+  quotes: "“" "”" "‘" "’";
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4705882353;
+  letter-spacing: var(--tracking-17);
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-synthesis: none;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
